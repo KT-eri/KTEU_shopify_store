@@ -1,0 +1,55 @@
+<section class="featured-collection">
+  <div class="container">
+    
+    {% if section.settings.title != blank %}
+      <h2 class="section-title">{{ section.settings.title | escape }}</h2>
+    {% endif %}
+
+    <div class="grid-layout">
+      
+      {%- assign target_collection = collections[section.settings.collection_id] -%}
+
+      {% for product_item in target_collection.products limit: section.settings.products_to_show %}
+        
+        {% render 'product-card', card_product: product_item %}
+
+      {% else %}
+        <p>目前沒有商品上架。</p>
+      {% endfor %}
+      
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "精選商品集",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "區塊標題",
+      "default": "熱銷推薦"
+    },
+    {
+      "type": "collection",
+      "id": "collection_id",
+      "label": "選擇商品集合"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "default": 4,
+      "label": "顯示數量"
+    }
+  ],
+  "presets": [
+    {
+      "name": "精選商品集"
+    }
+  ]
+}
+{% endschema %}

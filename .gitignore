@@ -1,0 +1,15 @@
+# --- Shopify 專用忽略清單 ---
+.shopify/                   # Shopify CLI 的暫存狀態
+node_modules/               # 如果你有安裝套件
+*.log                       # 各種報錯紀錄
+
+# --- Windows / 系統垃圾 ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- 選項：設定檔 (重要) ---
+# config/settings_data.json 
+# ^ 如果你希望「網頁版編輯器」設定的顏色、字體也能存進 Git，就「不要」忽略它。
+# ^ 如果你是多人開發，怕互相覆蓋設定，才需要取消註解來忽略它。
+# 建議：單人開發初期，先「不要」忽略這行，讓 Git 幫你備份設定。
