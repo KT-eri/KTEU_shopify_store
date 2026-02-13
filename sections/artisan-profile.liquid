@@ -1,0 +1,315 @@
+<div class="kt-artisan-profile-section" style="background-color: {{ section.settings.bg_color }};">
+  <div class="kt-container">
+    
+    <div class="kt-profile-wrapper">
+      <div class="kt-profile-image">
+        {% if section.settings.image != blank %}
+          {{ section.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'kt-img-responsive' }}
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'kt-placeholder-svg' }}
+        {% endif %}
+      </div>
+      
+      <div class="kt-profile-content">
+        <span class="kt-subtitle">{{ section.settings.subtitle }}</span>
+        <h1 class="kt-title">{{ section.settings.title }}</h1>
+        <div class="kt-bio">
+          {{ section.settings.bio }}
+        </div>
+        
+        <div class="kt-quote">
+          <p>“ {{ section.settings.quote }} ”</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="kt-recommendation-wrapper">
+      <h3 class="kt-section-heading">
+        <span class="icon">🛠️</span> {{ section.settings.products_heading }}
+      </h3>
+
+      <div class="kt-product-grid">
+        {% assign selected_products = section.settings.product_list %}
+        
+        {% if selected_products != blank %}
+          {% for product in selected_products %}
+            {% render 'card-product-simple', product: product %}
+          {% endfor %}
+        {% else %}
+          {% for i in (1..4) %}
+            <div class="kt-product-card placeholder">
+              <div class="kt-card-media">
+                {{ 'product-' | append: i | placeholder_svg_tag }}
+                <button class="kt-wishlist-btn" data-gatekeeping="true" type="button">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="kt-card-info">
+                <p class="kt-vendor">KING TONY</p>
+                <h4>範例手工具組 No.{{ i }}</h4>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% capture card_snippet %}
+  <div class="kt-product-card">
+    <div class="kt-card-media">
+      <a href="{{ product.url }}">
+        <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" loading="lazy">
+      </a>
+      <button class="kt-wishlist-btn" 
+              data-gatekeeping="true" 
+              data-product-id="{{ product.id }}"
+              type="button"
+              aria-label="Add to wishlist">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="kt-card-info">
+      <p class="kt-vendor">{{ product.vendor }}</p>
+      <h4><a href="{{ product.url }}">{{ product.title }}</a></h4>
+    </div>
+  </div>
+{% endcapture %}
+
+<style>
+  .kt-artisan-profile-section {
+    padding: 60px 0;
+    color: #333;
+  }
+  .kt-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* 1. Profile 區塊 */
+  .kt-profile-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+  
+  .kt-img-responsive {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .kt-subtitle {
+    color: #E31D1A; /* Brand Red */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+  }
+  
+  .kt-title {
+    font-size: 36px;
+    margin: 10px 0 24px;
+    line-height: 1.2;
+  }
+  
+  .kt-bio {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .kt-quote {
+    border-left: 4px solid #E31D1A;
+    padding-left: 20px;
+    font-style: italic;
+    color: #777;
+    font-size: 18px;
+  }
+
+  /* 2. 產品列表區塊 */
+  .kt-section-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .kt-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 預設 4 欄 */
+    gap: 20px;
+  }
+  
+  /* 產品卡樣式 */
+  .kt-product-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border: 1px solid #eee;
+  }
+  
+  .kt-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  }
+  
+  .kt-card-media {
+    position: relative;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    background: #f9f9f9;
+  }
+  
+  .kt-card-media img, 
+  .kt-card-media svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 或 contain */
+  }
+
+  /* 收藏按鈕 (Gatekeeping 重點) */
+  .kt-wishlist-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s;
+    z-index: 2;
+  }
+  
+  .kt-wishlist-btn:hover {
+    background: #E31D1A;
+    color: white;
+  }
+  
+  .kt-card-info {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .kt-card-info h4 {
+    font-size: 14px;
+    margin: 5px 0 0;
+  }
+  
+  .kt-card-info a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  /* RWD */
+  @media (max-width: 768px) {
+    .kt-profile-wrapper {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .kt-product-grid {
+      grid-template-columns: repeat(2, 1fr); /* 手機變 2 欄 */
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Artisan Profile Page",
+  "tag": "section",
+  "class": "section-artisan-profile",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🎨 版面設定"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "👤 職人資料 (Profile)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Profile Image"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle / Role",
+      "default": "KT MASTER : TAIWAN"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Artisan Name",
+      "default": "職人姓名"
+    },
+    {
+      "type": "richtext",
+      "id": "bio",
+      "label": "Biography / Story",
+      "default": "<p>在這裡撰寫職人的故事。他如何使用 KING TONY 工具完成不可思議的任務？他的職人精神是什麼？</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Highlight Quote",
+      "default": "工欲善其事，必先利其器。這就是我的堅持。"
+    },
+    {
+      "type": "header",
+      "content": "🛠️ 推薦產品綁定"
+    },
+    {
+      "type": "text",
+      "id": "products_heading",
+      "label": "Section Heading",
+      "default": "大師推薦必備工具"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Select Products",
+      "limit": 8,
+      "info": "請選擇此職人推薦的產品 (最多 8 個)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Artisan Profile (Default)",
+      "settings": {
+        "subtitle": "KT MASTER : GERMANY",
+        "title": "Hans Müller",
+        "quote": "Precision is not an option, it is a necessity.",
+        "bio": "<p>Hans 擁有超過 20 年的重型機械維修經驗。對他來說，每一個螺絲的扭力都必須精確無誤。這就是為什麼他只信任 KING TONY 的扭力扳手。</p>"
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "artisan-profile",
+      "settings": {
+        "subtitle": "預覽模式：CLI測試中",
+        "title": "職人頁面預覽",
+        "bio": "<p>這是透過 JSON 模板直接生成的預覽頁面。您可以在這裡看到預設的設定值。</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

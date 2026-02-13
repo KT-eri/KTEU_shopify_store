@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <desc>Wireframe for Wishlist and Personality Quiz based on hand-drawn sketch.</desc>
+  
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="350" height="500" fill="none" stroke="black" stroke-width="2"/>
+    
+    <rect x="20" y="20" width="200" height="60" fill="none" stroke="gray" stroke-width="1.5"/>
+    <text x="120" y="55" font-family="Arial" font-size="16" text-anchor="middle">my wish list</text>
+    <rect x="30" y="30" width="50" height="40" fill="none" stroke="gray"/>
+    <text x="90" y="55" font-family="Arial" font-size="14">→ pic</text>
+    
+    <g transform="translate(20, 100)">
+      <rect x="0" y="0" width="60" height="50" fill="none" stroke="black"/>
+      <text x="30" y="30" font-family="Arial" font-size="14" text-anchor="middle">C1</text>
+      <rect x="70" y="0" width="60" height="50" fill="none" stroke="black"/>
+      <text x="100" y="30" font-family="Arial" font-size="14" text-anchor="middle">C2</text>
+      <rect x="140" y="0" width="60" height="50" fill="none" stroke="black"/>
+      <text x="170" y="30" font-family="Arial" font-size="14" text-anchor="middle">C3</text>
+      <rect x="0" y="60" width="60" height="50" fill="none" stroke="black"/>
+      <text x="30" y="90" font-family="Arial" font-size="14" text-anchor="middle">C4</text>
+      <rect x="70" y="60" width="60" height="50" fill="none" stroke="black"/>
+      <text x="100" y="90" font-family="Arial" font-size="14" text-anchor="middle">C5</text>
+      <rect x="140" y="60" width="60" height="50" fill="none" stroke="black"/>
+      <text x="170" y="90" font-family="Arial" font-size="14" text-anchor="middle">C6</text>
+    </g>
+    
+    <g transform="translate(240, 20)">
+      <rect x="0" y="0" width="90" height="120" fill="none" stroke="gray"/>
+      <text x="45" y="30" font-family="Arial" font-size="14" text-anchor="middle">套筒<tspan x="45" dy="1.2em">3/8組</tspan></text>
+      <rect x="10" y="50" width="70" height="20" fill="#ffcccc" stroke="red"/>
+      <text x="45" y="65" font-family="Arial" font-size="12" fill="red" text-anchor="middle">add</text>
+      <rect x="10" y="75" width="70" height="20" fill="none" stroke="gray"/>
+      <rect x="10" y="100" width="70" height="20" fill="none" stroke="gray"/>
+    </g>
+    
+    <text x="240" y="160" font-family="Arial" font-size="14" fill="blue">最上面的是客人的</text>
+    <text x="240" y="180" font-family="Arial" font-size="14" fill="blue">願望清單</text>
+    <rect x="235" y="145" width="105" height="40" fill="none" stroke="blue" stroke-dasharray="4"/>
+    
+    <text x="20" y="220" font-family="Arial" font-size="12" fill="#555" width="310">
+      <tspan x="20" dy="1.2em">C1-C6 是不同的產品類別，會以 NP/OP</tspan>
+      <tspan x="20" dy="1.2em">還有主要組套類的產品為主，不會有細項的</tspan>
+      <tspan x="20" dy="1.2em">產品，產品按 add 就會加入上方的願</tspan>
+      <tspan x="20" dy="1.2em">望清單</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(450, 50)">
+    <rect x="0" y="0" width="300" height="500" fill="none" stroke="black" stroke-width="2"/>
+    
+    <text x="150" y="40" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">工具人格測驗</text>
+    <text x="150" y="70" font-family="Arial" font-size="16" text-anchor="middle">你是哪種人格？</text>
+    
+    <g transform="translate(30, 100)">
+      <g transform="translate(0, 0)">
+        <circle cx="15" cy="15" r="10" fill="none" stroke="black"/>
+        <line x1="15" y1="25" x2="15" y2="50" stroke="black"/>
+        <line x1="5" y1="35" x2="25" y2="35" stroke="black"/>
+        <line x1="15" y1="50" x2="5" y2="70" stroke="black"/>
+        <line x1="15" y1="50" x2="25" y2="70" stroke="black"/>
+        <text x="15" y="85" font-family="Arial" font-size="14" text-anchor="middle">A</text>
+      </g>
+      <g transform="translate(50, 0)">
+        <circle cx="15" cy="15" r="10" fill="none" stroke="black"/>
+        <line x1="15" y1="25" x2="15" y2="50" stroke="black"/>
+        <line x1="5" y1="35" x2="25" y2="35" stroke="black"/>
+        <line x1="15" y1="50" x2="5" y2="70" stroke="black"/>
+        <line x1="15" y1="50" x2="25" y2="70" stroke="black"/>
+        <text x="15" y="85" font-family="Arial" font-size="14" text-anchor="middle">B</text>
+      </g>
+      <g transform="translate(100, 0)">
+        <circle cx="15" cy="15" r="10" fill="none" stroke="black"/>
+        <line x1="15" y1="25" x2="15" y2="50" stroke="black"/>
+        <line x1="5" y1="35" x2="25" y2="35" stroke="black"/>
+        <line x1="15" y1="50" x2="5" y2="70" stroke="black"/>
+        <line x1="15" y1="50" x2="25" y2="70" stroke="black"/>
+        <text x="15" y="85" font-family="Arial" font-size="14" text-anchor="middle">C</text>
+      </g>
+      <g transform="translate(150, 0)">
+        <circle cx="15" cy="15" r="10" fill="none" stroke="black"/>
+        <line x1="15" y1="25" x2="15" y2="50" stroke="black"/>
+        <line x1="5" y1="35" x2="25" y2="35" stroke="black"/>
+        <line x1="15" y1="50" x2="5" y2="70" stroke="black"/>
+        <line x1="15" y1="50" x2="25" y2="70" stroke="black"/>
+        <text x="15" y="85" font-family="Arial" font-size="14" text-anchor="middle">D</text>
+      </g>
+      <g transform="translate(200, 0)">
+        <circle cx="15" cy="15" r="10" fill="none" stroke="black"/>
+        <line x1="15" y1="25" x2="15" y2="50" stroke="black"/>
+        <line x1="5" y1="35" x2="25" y2="35" stroke="black"/>
+        <line x1="15" y1="50" x2="5" y2="70" stroke="black"/>
+        <line x1="15" y1="50" x2="25" y2="70" stroke="black"/>
+        <text x="15" y="85" font-family="Arial" font-size="14" text-anchor="middle">E</text>
+      </g>
+    </g>
+    
+    <g transform="translate(30, 200)">
+      <text x="0" y="20" font-family="Arial" font-size="14">Q1. _________________</text>
+      <text x="20" y="45" font-family="Arial" font-size="12">opt1 ____________</text>
+      <text x="20" y="65" font-family="Arial" font-size="12">opt2 ____________</text>
+      <text x="20" y="85" font-family="Arial" font-size="12">opt3 ____________</text>
+      <text x="0" y="120" font-family="Arial" font-size="14">Q5. _________________</text>
+    </g>
+    
+    <g transform="translate(80, 340)">
+      <rect x="0" y="0" width="140" height="30" fill="none" stroke="red"/>
+      <text x="70" y="20" font-family="Arial" font-size="14" fill="red" text-anchor="middle">know yours</text>
+    </g>
+    
+    <g transform="translate(20, 400)">
+      <rect x="0" y="0" width="260" height="80" fill="none" stroke="gray" stroke-dasharray="4"/>
+      <text x="130" y="30" font-family="Arial" font-size="14" text-anchor="middle">你跟 XX 職人是同</text>
+      <text x="130" y="50" font-family="Arial" font-size="14" text-anchor="middle">一個性格</text>
+      <circle cx="220" cy="40" r="20" fill="none" stroke="black"/>
+      <text x="220" y="45" font-family="Arial" font-size="12" text-anchor="middle">職人</text>
+      <text x="10" y="75" font-family="Arial" font-size="10" fill="gray">了解更多職人故事還有他們推薦的產品</text>
+    </g>
+  </g>
+</svg>
