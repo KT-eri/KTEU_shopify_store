@@ -479,9 +479,27 @@
     },
     "custom_world_map_w4Tr6Q": {
       "type": "custom-world-map",
+      "blocks": {
+        "landmark_C7jdFi": {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "country": "Taiwan",
+            "name": "職人姓名",
+            "description": "專業技能",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "landmark_C7jdFi"
+      ],
       "custom_css": [],
       "name": "World Map Team",
-      "settings": {}
+      "settings": {
+        "bg_color": "#f4f4f4"
+      }
     }
   },
   "order": [
