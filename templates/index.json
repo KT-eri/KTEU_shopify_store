@@ -67,7 +67,7 @@
             "text_9GPTJG": {
               "type": "text",
               "settings": {
-                "text": "<p>Introducing our latest products, made especially for the season. Shop your favorites before they're gone!</p>",
+                "text": "<p>a brand of tools that exude professionalism, comfort, and honor for your expertise. </p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -164,7 +164,7 @@
             "text_nqpwrW": {
               "type": "text",
               "settings": {
-                "text": "<p>Discover the bestsellers that have captured the hearts of our customers with their perfect blend of functionality and style.</p>",
+                "text": "<p>Join our community of skilled craftsmen and enthusiasts who value precision, quality, and integrity in their tools..</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -550,10 +550,11 @@
       "blocks": {
         "media": {
           "type": "_media-without-appearance",
+          "name": "測驗示意圖",
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/close-up-of-handheld-tools.jpg",
+            "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8.png",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -564,6 +565,7 @@
         },
         "content": {
           "type": "_content-without-appearance",
+          "name": "測驗入口",
           "static": true,
           "settings": {
             "horizontal_alignment_flex_direction_column": "flex-start",
@@ -614,11 +616,11 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h2>What kind of tool worker you are?</h2>",
-                    "width": "fit-content",
+                    "text": "<h2>Determine the type of tools you use in your work.</h2>",
+                    "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h3",
+                    "type_preset": "h4",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -639,7 +641,7 @@
                 "text_WFTmRe": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Made with care and unconditionally loved by our customers, this signature bestseller exceeds all expectations.</p>",
+                    "text": "<p>This fun quiz lets you discover which type of tool user you belong to</p>",
                     "width": "fit-content",
                     "max_width": "narrow",
                     "alignment": "left",
@@ -673,7 +675,7 @@
                 "label": "Take A Test",
                 "link": "https://znsc3u-vt.myshopify.com/tools/perfect-product-finder/lets-have-a-test?instore=true",
                 "open_in_new_tab": false,
-                "style_class": "button",
+                "style_class": "button-secondary",
                 "width": "custom",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
@@ -688,7 +690,7 @@
           ]
         }
       },
-      "name": "t:names.editorial",
+      "name": "測驗入口",
       "settings": {
         "media_position": "left",
         "media_width": "medium",
