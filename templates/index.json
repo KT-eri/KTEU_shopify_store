@@ -577,6 +577,7 @@
       "block_order": [
         "text_9BMJK8"
       ],
+      "disabled": true,
       "name": "t:names.pull_quote",
       "settings": {
         "content_direction": "column",
@@ -1193,7 +1194,6 @@
       "block_order": [
         "group_ywK7ny"
       ],
-      "disabled": true,
       "name": "t:names.collections_bento",
       "settings": {
         "collection_list": [],
@@ -1400,12 +1400,12 @@
   },
   "order": [
     "slideshow_TrLfGP",
+    "collection_list_b6thME",
     "layered_slideshow_3dE6GX",
     "section_JBApXq",
     "hero_GTi4cH",
     "divider_r3bqGz",
     "slideshow_KA9YPT",
-    "collection_list_b6thME",
     "media_with_content_kQAPkq",
     "custom_world_map_w4Tr6Q"
   ]
