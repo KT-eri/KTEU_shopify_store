@@ -90,8 +90,8 @@
             "navigation_bar": false,
             "color_scheme_navigation_bar": "",
             "drawer_accordion": false,
-            "drawer_accordion_expand_first": false,
-            "drawer_dividers": true
+            "drawer_accordion_expand_first": true,
+            "drawer_dividers": false
           },
           "blocks": {}
         }
@@ -104,8 +104,8 @@
         "search_position": "right",
         "search_row": "top",
         "show_country": false,
-        "country_selector_style": false,
-        "show_language": true,
+        "country_selector_style": true,
+        "show_language": false,
         "localization_font": "heading",
         "localization_font_size": "0.875rem",
         "localization_position": "right",

@@ -42,7 +42,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h1>Welcome to  KINGTONY</h1>",
+                "text": "<h2>Welcome to  KINGTONY Club</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -58,7 +58,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 50,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -67,7 +67,7 @@
             "text_9GPTJG": {
               "type": "text",
               "settings": {
-                "text": "<p>a brand of tools that exude professionalism, comfort, and honor for your expertise. </p>",
+                "text": "<p>A brand of tools that exude professionalism, comfort, and honor for your expertise. </p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -83,7 +83,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 20,
+                "padding-block-end": 5,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
