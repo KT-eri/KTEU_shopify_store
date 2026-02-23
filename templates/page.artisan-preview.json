@@ -1,11 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "artisan-profile",
       "settings": {
-        "subtitle": "預覽模式：CLI測試中",
-        "title": "職人頁面預覽",
-        "bio": "<p>這是透過 JSON 模板直接生成的預覽頁面。您可以在這裡看到預設的設定值。</p>"
+        "bg_color": "#ffffff",
+        "image": "{{ page.metafields.custom.craftsmanpic.value }}",
+        "country": "{{ page.metafields.custom.craftsmancty.value }}",
+        "subtitle": "{{ page.metafields.custom.craftsmanjob.value }}",
+        "title": "{{ page.metafields.custom.craftsmanname.value }}",
+        "bio": "<p>{{ page.metafields.custom.craftsmanbio | metafield_tag }}</p>",
+        "quote": "工欲善其事，必先利其器。這就是我的堅持。",
+        "products_heading": "大師推薦必備工具",
+        "product_list": []
       }
     }
   },

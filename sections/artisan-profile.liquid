@@ -11,6 +11,13 @@
       </div>
       
       <div class="kt-profile-content">
+        <div class="kt-location">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            {{ section.settings.country }}
+        </div>
         <span class="kt-subtitle">{{ section.settings.subtitle }}</span>
         <h1 class="kt-title">{{ section.settings.title }}</h1>
         <div class="kt-bio">
@@ -260,6 +267,12 @@
     },
     {
       "type": "text",
+      "id": "country",
+      "label": "📍 國家 / 地區",
+      "default": "Germany"
+    },
+    {
+      "type": "text",
       "id": "subtitle",
       "label": "Subtitle / Role",
       "default": "KT MASTER : TAIWAN"
@@ -304,6 +317,7 @@
     {
       "name": "Artisan Profile (Default)",
       "settings": {
+        "country": "Berlin, Germany",
         "subtitle": "KT MASTER : GERMANY",
         "title": "Hans Müller",
         "quote": "Precision is not an option, it is a necessity.",

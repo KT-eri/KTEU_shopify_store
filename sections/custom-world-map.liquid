@@ -1,333 +1,427 @@
 <div class="kt-world-map-wrapper">
-  <div class="kt-map-svg-layer">
-    {% comment %} 這裡引入您原本的 icon-world-map.liquid {% endcomment %}
-    {% render 'icon-world-map' %}
-  </div>
+    <div class="kt-map-svg-layer">
+        {% comment %} 這裡引入您原本的 icon-world-map.liquid {% endcomment %}
+        {% render 'icon-world-map' %}
+    </div>
 
-  <div class="kt-landmarks-layer">
-    
-    {% for block in section.blocks %}
-      {% assign tooltip_class = '' %}
-      {% assign pos_y = block.settings.pos_y | plus: 0 %}
-      {% if pos_y < 45 %}
-        {% assign tooltip_class = 'kt-tooltip-bottom' %}
-      {% endif %}
-      <div class="kt-hotspot {{ tooltip_class }}" style="top: {{ block.settings.pos_y }}%; left: {{ block.settings.pos_x }}%;" {{ block.shopify_attributes }}>
-        
-        <div class="kt-pin-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#E31D1A"/>
-            <circle cx="12" cy="9" r="2.5" fill="white"/>
-          </svg>
-          <div class="kt-pin-pulse"></div>
-        </div>
+    <div class="kt-landmarks-layer">
+        {% for block in section.blocks %}
+            {% assign tooltip_class = '' %}
+            {% assign pos_y = block.settings.pos_y | plus: 0 %}
+            {% if pos_y < 45 %}
+                {% assign tooltip_class = 'kt-tooltip-bottom' %}
+            {% endif %}
+            <div
+                class="kt-hotspot {{ tooltip_class }}"
+                style="top: {{ block.settings.pos_y }}%; left: {{ block.settings.pos_x }}%;"
+                tabindex="0"
+                {{ block.shopify_attributes }}
+            >
+                <div class="kt-pin-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#E31D1A"/>
+                        <circle cx="12" cy="9" r="2.5" fill="white"/>
+                    </svg>
+                    <div class="kt-pin-pulse"></div>
+                </div>
 
-        <div class="kt-artisan-card">
-          <div class="kt-card-inner">
-            <div class="kt-card-image">
-              {% if block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 240 | image_tag: loading: 'lazy', alt: block.settings.name }}
-              {% else %}
-                <img src="https://placehold.co/80x80/png?text=PIC" alt="Artisan">
-              {% endif %}
+                <div class="kt-artisan-card">
+                    <div class="kt-card-inner">
+                        <div class="kt-card-image">
+                            {% if block.settings.image != blank %}
+                                {{
+                                    block.settings.image
+                                    | image_url: width: 240
+                                    | image_tag: loading: 'lazy', alt: block.settings.name
+                                }}
+                            {% else %}
+                                <img src="https://placehold.co/80x80/png?text=PIC" alt="Artisan">
+                            {% endif %}
+                        </div>
+                        <div class="kt-card-info">
+                            {% if block.settings.country != blank %}
+                                <div class="kt-artisan-country">{{ block.settings.country }}</div>
+                            {% endif %}
+                            <h4 class="kt-artisan-name">{{ block.settings.name }}</h4>
+                            <p class="kt-artisan-desc">{{ block.settings.description }}</p>
+                            <a href="{{ block.settings.link | default: '#' }}" class="kt-more-btn">MORE</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="kt-card-info">
-              {% if block.settings.country != blank %}
-                <div class="kt-artisan-country">{{ block.settings.country }}</div>
-              {% endif %}
-              <h4 class="kt-artisan-name">{{ block.settings.name }}</h4>
-              <p class="kt-artisan-desc">{{ block.settings.description }}</p>
-              <a href="{{ block.settings.link | default: '#' }}" class="kt-more-btn">MORE</a>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    {% endfor %}
-
-  </div>
+        {% endfor %}
+    </div>
 </div>
 
 <style>
-  /* 容器設定：確保地標層與地圖層完美重疊 */
-  .kt-world-map-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1440px; /* 依據您的版面調整 */
-    margin: 0 auto;
-    {% comment %} background-color: #f4f4f4; /* 示意背景色 */ {% endcomment %}
-    overflow: visible; /* 允許小卡超出邊界 */
-  }
+    /* 容器設定：確保地標層與地圖層完美重疊 */
+    .kt-world-map-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 1440px; /* 依據您的版面調整 */
+        margin: 0 auto;
+        padding: 40px 20px; /* 上下留白，避免小卡被切到 */
+        {% comment %} background-color: #f4f4f4; /* 示意背景色 */ {% endcomment %}
+        overflow: visible; /* 允許小卡超出邊界 */
+    }
 
-  /* 1. 地圖層：讓 SVG 自適應寬度 */
-  .kt-map-svg-layer svg {
-    width: 100%;
-    height: auto;
-    display: block;
-    fill: #d1d1d1; /* 預設地圖顏色 */
-  }
+    /* 1. 地圖層：讓 SVG 自適應寬度 */
+    .kt-map-svg-layer svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        fill: #d1d1d1; /* 預設地圖顏色 */
+    }
 
-  /* 2. 地標層：覆蓋在上方 */
-  .kt-landmarks-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* 讓點擊穿透到地圖，除非點到地標 */
-  }
+    /* 2. 地標層：覆蓋在上方 */
+    .kt-landmarks-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* 讓點擊穿透到地圖，除非點到地標 */
+    }
 
-  /* 熱點容器 */
-  .kt-hotspot {
-    position: absolute;
-    transform: translate(-50%, -100%); /* 讓定位點對準 Icon 底部尖端 */
-    pointer-events: auto; /* 恢復互動 */
-    cursor: pointer;
-    {% comment %} z-index: 10; {% endcomment %}
-     z-index: 9999; /* 強制置頂 */
-  }
-
-  /* A. 紅色地標樣式 */
-  .kt-pin-icon {
-    position: relative;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-  }
-  
-  /* Hover 時地標放大 */
-  .kt-hotspot:hover .kt-pin-icon {
-    transform: scale(1.2) translateY(-5px);
-    z-index: 20;
-  }
-
-  /* 呼吸燈動畫 (Optional) */
-  .kt-pin-pulse {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: rgba(227, 29, 26, 0.4);
-    border-radius: 50%;
-    z-index: -1;
-    animation: pulse 2s infinite;
-  }
-  
-  @keyframes pulse {
-    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
-  }
-
-  /* B. 職人小卡樣式 (依據 image_3ee674.png 設計) */
-  .kt-artisan-card {
-    position: absolute;
-    bottom: 100%; /* 出現在地標上方 */
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    width: 200px;
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    border: 1px solid #eee;
-    
-    /* 隱藏狀態 */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    z-index: 100;
-    margin-bottom: 12px; /* 與地標的距離 */
-  }
-
-  /* Hover 觸發顯示小卡 */
-  .kt-hotspot:hover .kt-artisan-card {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
-  }
-
-  /* 小卡箭頭 */
-  .kt-artisan-card::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 6px 6px 0;
-    border-style: solid;
-    border-color: white transparent transparent transparent;
-  }
-
-  /* 若地標位置太靠上 (Y < 40%)，則將小卡顯示在地標下方 */
-  .kt-hotspot.kt-tooltip-bottom .kt-artisan-card {
-    bottom: auto;
-    top: 100%;
-    margin-bottom: 0;
-    margin-top: 12px;
-    transform: translateX(-50%) translateY(-10px);
-  }
-
-  /* 下方顯示時的箭頭方向調整 */
-  .kt-hotspot.kt-tooltip-bottom .kt-artisan-card::after {
-    bottom: auto;
-    top: -6px;
-    border-width: 0 6px 6px;
-    border-color: transparent transparent white transparent;
-  }
-
-  /* 修正下方顯示時的 Hover 動畫 (解決權重問題) */
-  .kt-hotspot.kt-tooltip-bottom:hover .kt-artisan-card {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  /* 小卡內部排版 */
-  .kt-card-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .kt-card-image img {
-    width: 100%;
-    max-width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    border: 1px solid #ddd;
-  }
-
-  .kt-artisan-country {
-    font-size: 12px;
-    color: #E31D1A; /* 使用品牌紅 */
-    font-weight: bold;
-    margin-bottom: 4px;
-  }
-
-  .kt-artisan-name {
-    margin: 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: #333;
-  }
-
-  .kt-artisan-desc {
-    margin: 2px 0 8px;
-    font-size: 12px;
-    color: #666;
-  }
-
-  .kt-more-btn {
-    display: inline-block;
-    padding: 5px 12px;
-    background-color: #E31D1A; /* King Tony Red */
-    color: white;
-    text-decoration: none;
-    font-size: 10px;
-    font-weight: 600;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-  }
-
-  .kt-more-btn:hover {
-    background-color: #c21916;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(227, 29, 26, 0.3);
-  }
-
-  
-  /* 手機版 RWD 調整 */
-  @media (max-width: 768px) {
-    /* 1. 修正 Hotspot 定位方式：移除 transform 以便讓子元素的 fixed 定位生效 */
+    /* 熱點容器 */
     .kt-hotspot {
-      transform: none !important; /* 強制移除 transform */
-      margin-left: -10px; /* 修正水平中心 (icon 寬 20px 的一半) */
-      margin-top: -20px;  /* 修正垂直底部 (icon 高 20px) */
+        position: absolute;
+        transform: translate(-50%, -100%); /* 讓定位點對準 Icon 底部尖端 */
+        pointer-events: auto; /* 恢復互動 */
+        cursor: pointer;
+        {% comment %} z-index: 10; {% endcomment %}
     }
 
-    /* 2. 職人小卡：底部滑出樣式 */
+    /* A. 紅色地標樣式 */
+    .kt-pin-icon {
+        position: relative;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+       
+    }
+
+    /* Hover 時地標放大 */
+    .kt-hotspot:hover .kt-pin-icon {
+        transform: scale(1.2) translateY(-5px);
+        {% comment %} z-index: 20; {% endcomment %}
+    }
+
+    /* 呼吸燈動畫 (Optional) */
+    .kt-pin-pulse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background: rgba(227, 29, 26, 0.4);
+        border-radius: 50%;
+        z-index: -1;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+        100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+    }
+
+    /* B. 職人小卡樣式 (依據 image_3ee674.png 設計) */
     .kt-artisan-card {
-      position: fixed; /* 固定在螢幕視窗 */
-      left: 0;
-      top: auto;
-      bottom: 0;
-      width: 100%;
-      height: 220px; /* 固定高度 */
-      margin: 0;
-      border-radius: 20px 20px 0 0; /* 上方圓角 */
-      background: white;
-      z-index: 2147483647; /* 確保在最上層 */
-      
-      /* 動畫設定：從底部滑出 */
-      transform: translateY(101%); 
-      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      
-      /* 顯示設定 */
-      opacity: 1;
-      visibility: visible;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-      
-      /* 內容排版 */
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        position: absolute;
+        bottom: 100%; /* 出現在地標上方 */
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        width: 200px;
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        border: 1px solid #eee;
+
+        /* 隱藏狀態 */
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        z-index: 100;
+        margin-bottom: 12px; /* 與地標的距離 */
     }
 
-    /* 3. 觸發顯示 (支援點擊與 Focus) */
-    .kt-hotspot:hover .kt-artisan-card,
-    .kt-hotspot:active .kt-artisan-card,
-    .kt-hotspot:focus-within .kt-artisan-card {
-      transform: translateY(0);
+    /* Hover 觸發顯示小卡 */
+    .kt-hotspot:hover .kt-artisan-card {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
     }
 
-    /* 4. 隱藏原本的小箭頭 */
+    /* 小卡箭頭  預設在地標上方*/
     .kt-artisan-card::after {
-      display: none;
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px 6px 0;
+        border-style: solid;
+        border-color: white transparent transparent transparent;
     }
 
-    /* 5. 內容佈局調整 (改為橫向排列) */
+
+        /* 若地標位置太靠上 (Y < 45%)，則將小卡顯示在地標下方 */
+    .kt-hotspot.kt-tooltip-bottom .kt-artisan-card {
+        bottom: auto;
+        top: 100%;
+        margin-bottom: 0;
+        margin-top: 12px;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+         /* 下方顯示時的箭頭方向調整 */
+    .kt-hotspot.kt-tooltip-bottom .kt-artisan-card::after {
+        bottom: auto;
+        top: -6px;
+        border-width: 0 6px 6px;
+        border-color: transparent transparent white transparent;
+    }
+
+        /* 修正下方顯示時的 Hover 動畫 (解決權重問題) */
+        .kt-hotspot.kt-tooltip-bottom:hover .kt-artisan-card {
+          transform: translateX(-50%) translateY(0);
+        }
+
+        /* 小卡內部排版 */
+        .kt-card-inner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .kt-card-image img {
+          width: 100%;
+          max-width: 120px;
+          height: 120px;
+          object-fit: cover;
+          border-radius: 4px;
+          margin-bottom: 8px;
+          border: 1px solid #ddd;
+        }
+
+        .kt-artisan-country {
+          font-size: 12px;
+          color: #E31D1A; /* 使用品牌紅 */
+          font-weight: bold;
+          margin-bottom: 4px;
+        }
+
+        .kt-artisan-name {
+          margin: 0;
+          font-size: 14px;
+          font-weight: 700;
+          color: #333;
+        }
+
+        .kt-artisan-desc {
+          margin: 2px 0 8px;
+          font-size: 12px;
+          color: #666;
+        }
+
+        .kt-more-btn {
+          display: inline-block;
+          padding: 5px 12px;
+          background-color: #E31D1A; /* King Tony Red */
+          color: white;
+          text-decoration: none;
+          font-size: 10px;
+          font-weight: 600;
+          border-radius: 20px;
+          transition: all 0.3s ease;
+        }
+
+        .kt-more-btn:hover {
+          background-color: #c21916;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(227, 29, 26, 0.3);
+        }
+
+
+    @media (max-width: 425px) {
+
+      /* 1. 【關鍵修正】紅點設定：移除 transform
+        這是為了讓裡面的 fixed 卡片能對齊「螢幕」而不是「紅點」 */
+      .kt-hotspot {
+        transform: none !important;
+
+        /* 因為移除了 transform，我們需要手動修正紅點位置讓針尖對準座標 */
+        /* 假設您的 icon 寬 20px，高 20px */
+        margin-left: -10px !important; /* 往左修正寬度的一半 */
+        margin-top: -20px !important;  /* 往上修正高度 */
+      }
+      .kt-artisan-card::after {
+        content: '';
+        visibility: hidden !important; /* 手機版不顯示箭頭，避免位置錯亂 */
+      }
+
+      /* 2. 卡片外框設定 (只管位置與滑出動畫) */
+      .kt-artisan-card {
+        position: fixed !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        top: auto !important;
+
+        /* 強制寬度佔滿螢幕 */
+        width: 100vw !important;
+        width: 100% !important; /* 雙重保險 */
+        margin: 0 !important;
+
+        /* 確保在最上層 */
+        z-index: 30; /* 降低層級，避免蓋過 Header */
+
+        /* 預設狀態：收在底部 (看不到) */
+        transform: translateY(100%) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+
+        /* 您的陰影設定：0 -4px 代表陰影往「上」跑，製造從底部滑出的立體感 */
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.15) !important;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* 3. 當紅點被點擊 (active) 時 -> 卡片滑出 */
+      .kt-hotspot.kt-active .kt-artisan-card {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* 4. 防止手機版 Hover 干擾 (跟之前一樣) */
+      .kt-hotspot:hover .kt-artisan-card {
+        transform: translateY(100%) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+
+      /* 5. 確保 Active 權重最高 (跟之前一樣) */
+      .kt-hotspot.kt-active:hover .kt-artisan-card {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* 1. 內部容器：改成橫向排列 */
     .kt-card-inner {
-      flex-direction: row;
-      width: 100%;
-      padding: 0 24px;
-      gap: 20px;
-      text-align: center;
+      display: flex !important;
+      flex-direction: row !important; /* 橫向排列 */
+      align-items: center !important; /* 垂直置中 */
+      justify-content: center !important;
+      gap: 15px !important; /* 圖片跟文字中間的間距 */
+      width: 100% !important;
+      height: 100% !important;
+      padding: 0 20px !important; /* 左右留白 */
+      box-sizing: border-box !important; /* 確保 padding 不會撐爆寬度 */
     }
 
-.kt-card-image {
-      width: 50%;
-      height: auto;
-      background-color: red; /* 示意圖片區背景色 */
-      {% comment %} flex: 0 0 50%; {% endcomment %}
+    /* 2. 左邊圖片區：佔一半空間 */
+    .kt-card-image {
+      flex: 1 !important; /* 自動分配空間 */
+      max-width: 50% !important; /* 最大不超過一半 */
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
     }
 
     .kt-card-image img {
-      width: 100%;
-      height: auto;
-      {% comment %} aspect-ratio: 1/1; /* 強制固定為正方形 */ {% endcomment %}
-      object-fit: fill;
-      margin-bottom: 0;
+      width: 100% !important;
+      height: auto !important;
+      max-height: 140px !important; /* 限制最大高度，避免圖片太大 */
+      object-fit: contain !important; /* 保持比例 */
+      border: none !important;
+      margin-bottom: 0 !important; /* 移除原本底部的留白 */
     }
 
+    /* 3. 右邊資訊區：佔一半空間 */
     .kt-card-info {
-      flex: 1;
+      flex: 1 !important; /* 自動分配剩下的空間 */
+      text-align: left !important; /* 文字靠左對齊 (比較好看) */
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: flex-start !important; /*內容靠左 */
     }
 
+    /* 微調文字大小 (選用) */
     .kt-artisan-name {
-      font-size: 18px;
-      margin-bottom: 4px;
+      font-size: 16px !important;
+      margin-bottom: 5px !important;
     }
-    
+
     .kt-artisan-desc {
-      font-size: 13px;
-      margin-bottom: 12px;
+      font-size: 13px !important;
+      margin-bottom: 10px !important;
+      /* 如果文字太多，限制顯示行數 */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    function handleGlobalClick(e) {
+      // 【關鍵修正 1】電腦版 (大於 768px) 完全不執行 JS
+      // 讓電腦版完全依賴原本的 CSS :hover 運作，互不干擾
+      if (window.innerWidth > 768) return;
+
+      const clickedHotspot = e.target.closest('.kt-hotspot');
+      const clickedCard = e.target.closest('.kt-artisan-card');
+
+      // A. 如果點到卡片內容 -> 什麼都不做 (讓使用者可以複製文字)
+      if (clickedCard) return;
+
+      // B. 如果點到紅點 (Hotspot)
+      if (clickedHotspot) {
+        e.preventDefault(); // 防止亂跳
+
+        // 判斷現在是否已經開著
+        const isActive = clickedHotspot.classList.contains('kt-active');
+
+        // 先關閉"所有"紅點 (重置狀態)
+        document.querySelectorAll('.kt-hotspot').forEach((h) => {
+          h.classList.remove('kt-active');
+        });
+
+        // 如果剛剛沒開，現在就把它打開
+        // 注意：這裡我們把 class 加在 "kt-hotspot" 父層上
+        if (!isActive) {
+          clickedHotspot.classList.add('kt-active');
+        }
+        return;
+      }
+
+      // C. 點到空白處 -> 關閉所有
+      document.querySelectorAll('.kt-hotspot').forEach((h) => {
+        h.classList.remove('kt-active');
+      });
+    }
+
+    // 綁定點擊事件
+    document.removeEventListener('click', handleGlobalClick);
+    document.addEventListener('click', handleGlobalClick);
+
+    // 【額外保險】當視窗大小改變時，如果是電腦版，清除所有殘留的 active class
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        document.querySelectorAll('.kt-hotspot').forEach((h) => {
+          h.classList.remove('kt-active');
+        });
+      }
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "World Artisan Map",
@@ -412,9 +506,17 @@
         {
           "type": "landmark",
           "settings": {
-            "pos_x": 82,
-            "pos_y": 42,
+            "pos_x": 50,
+            "pos_y": 50,
             "name": "台灣職人"
+          }
+        },
+        {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 20,
+            "pos_y": 40,
+            "name": "在地職人"
           }
         }
       ]
