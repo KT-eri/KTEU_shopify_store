@@ -1384,7 +1384,7 @@
             "country": "Taiwan",
             "name": "職人姓名",
             "description": "專業技能",
-            "link": ""
+            "link": "shopify://pages/professional-profile"
           }
         }
       },
