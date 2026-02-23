@@ -16,7 +16,7 @@
         "image": "{{ page.metafields.custom.craftsmanpic.value }}",
         "country": "{{ page.metafields.custom.craftsmancty.value }}",
         "subtitle": "{{ page.metafields.custom.craftsmanjob.value }}",
-        "title": "職人頁面預覽{{ page.metafields.custom.craftsmanname.value }}",
+        "title": "{{ page.metafields.custom.craftsmanname.value }}",
         "bio": "<p>{{ page.metafields.custom.craftsmanbio | metafield_tag }}</p>",
         "quote": "工欲善其事，必先利其器。這就是我的堅持。",
         "products_heading": "大師推薦必備工具",
