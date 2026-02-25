@@ -94,7 +94,7 @@
               "type": "button",
               "settings": {
                 "label": "Join now",
-                "link": "shopify://collections/all",
+                "link": "https://shopify.com/authentication/74965581976/login?client_id=7c8c6751-8515-44ec-b8fb-dbc166d6696b&locale=en&redirect_uri=%2Fauthentication%2F74965581976%2Foauth%2Fauthorize%3F_cs%3D3amP.S_TWTXG_f_f_o-NpxWghQ2yAKz4-QEqF1w%26client_id%3D7c8c6751-8515-44ec-b8fb-dbc166d6696b%26locale%3Den%26nonce%3Da7b702dd-d882-4724-936e-c763cceb140b%26redirect_uri%3Dhttps%253A%252F%252Fznsc3u-vt.myshopify.com%252Fcustomer_authentication%252Fcallback%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWN9AuP3Qihi3DHDOOJzc3BB&ui_hint=full",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
@@ -736,7 +736,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/9022a705161ff42b7879d88f1fd6d0e8.png",
+            "image": "shopify://shop_images/test.jpg",
             "link": "",
             "video_loop": true,
             "video_autoplay": false,
@@ -751,7 +751,7 @@
           "static": true,
           "settings": {
             "horizontal_alignment_flex_direction_column": "center",
-            "vertical_alignment_flex_direction_column": "space-between",
+            "vertical_alignment_flex_direction_column": "center",
             "gap": 0
           },
           "blocks": {
@@ -764,8 +764,8 @@
                 "vertical_alignment": "center",
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 14,
                 "width": "fill",
                 "custom_width": 100,
                 "width_mobile": "fill",
@@ -824,10 +824,10 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>This fun quiz lets you discover which type of tool user you belong to</p>",
-                    "width": "fit-content",
+                    "width": "100%",
                     "max_width": "narrow",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "h5",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -872,11 +872,10 @@
           ]
         }
       },
-      "disabled": true,
       "name": "測驗入口",
       "settings": {
         "media_position": "left",
-        "media_width": "narrow",
+        "media_width": "medium",
         "media_height": "60svh",
         "section_width": "full-width",
         "extend_media": false,
