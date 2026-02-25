@@ -58,7 +58,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 28,
+                "padding-block-start": 20,
                 "padding-block-end": 10,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -417,7 +417,7 @@
             "open_in_new_tab": false,
             "placeholder": "",
             "padding-block-start": 10,
-            "padding-block-end": 0,
+            "padding-block-end": 30,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -564,10 +564,10 @@
                 "text": "<p>Member Exclusive Interaction</p>",
                 "width": "100%",
                 "max_width": "normal",
-                "alignment": "center",
-                "type_preset": "h3",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "2rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -639,8 +639,9 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/frustrated-man-on-computer.jpg",
                     "link": "",
-                    "image_ratio": "adapt",
+                    "image_ratio": "square",
                     "width": "fill",
                     "custom_width": 100,
                     "width_mobile": "fill",
@@ -661,7 +662,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>Artistry in action </p>",
+                    "text": "<p>角色測驗</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -748,8 +749,9 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/looking-through-records.jpg",
                     "link": "",
-                    "image_ratio": "adapt",
+                    "image_ratio": "square",
                     "width": "fill",
                     "custom_width": 100,
                     "width_mobile": "fill",
@@ -770,7 +772,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>Uncompromising standards </p>",
+                    "text": "<p>你的專屬收藏箱</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -857,8 +859,9 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/antique-binoculars-and-map.jpg",
                     "link": "",
-                    "image_ratio": "adapt",
+                    "image_ratio": "square",
                     "width": "fill",
                     "custom_width": 100,
                     "width_mobile": "fill",
@@ -879,7 +882,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>Made to last </p>",
+                    "text": "<p>世界職人地圖</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -966,8 +969,9 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/smiling-man-holds-cup-of-tea.jpg",
                     "link": "",
-                    "image_ratio": "adapt",
+                    "image_ratio": "square",
                     "width": "fill",
                     "custom_width": 100,
                     "width_mobile": "fill",
@@ -988,7 +992,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h2>Quality you can feel</h2>",
+                    "text": "<h2>品牌 VIP服務</h2>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1896,6 +1900,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "測驗入口",
       "settings": {
         "media_position": "left",
@@ -1926,6 +1931,7 @@
       "block_order": [
         "landmark_6fP7fV"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "World Map Team",
       "settings": {
