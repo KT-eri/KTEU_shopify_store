@@ -396,7 +396,7 @@
       ],
       "name": "t:names.product_recommendations",
       "settings": {
-        "product": "adjustable-height-roller-seat",
+        "product": "{{ product }}",
         "recommendation_type": "related",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
