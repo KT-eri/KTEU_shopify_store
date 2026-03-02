@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "main-page",
@@ -18,7 +19,7 @@
             "text": "<h1>{{ closest.page.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "left",
+            "alignment": "center",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
             "font_size": "",
@@ -49,14 +50,50 @@
       ],
       "settings": {
         "content_direction": "column",
-        "gap": 32,
+        "gap": 0,
         "color_scheme": "",
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "custom_world_map_PYFz8y": {
+      "type": "custom-world-map",
+      "blocks": {
+        "landmark_Uz8iLW": {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "country": "Taiwan",
+            "name": "台灣職人",
+            "description": "專業技能",
+            "link": ""
+          }
+        },
+        "landmark_PEzHVr": {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 20,
+            "pos_y": 40,
+            "country": "Taiwan",
+            "name": "在地職人",
+            "description": "專業技能",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "landmark_Uz8iLW",
+        "landmark_PEzHVr"
+      ],
+      "name": "World Artisan Map (預設)",
+      "settings": {
+        "bg_color": "#f4f4f4"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_world_map_PYFz8y"
   ]
 }
