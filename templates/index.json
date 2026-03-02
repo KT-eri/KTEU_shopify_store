@@ -402,25 +402,41 @@
             "text_dJApnn",
             "text_VHKqGE"
           ]
+        },
+        "button_M76xbT": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "Join now",
+            "link": "https://shopify.com/authentication/74965581976/login?client_id=7c8c6751-8515-44ec-b8fb-dbc166d6696b&locale=en&redirect_uri=%2Fauthentication%2F74965581976%2Foauth%2Fauthorize%3F_cs%3D3amP.S_TWTXG_f_f_o-NpxWghQ2yAKz4-QEqF1w%26client_id%3D7c8c6751-8515-44ec-b8fb-dbc166d6696b%26locale%3Den%26nonce%3D2763639c-f73e-4b3b-9499-0ad8d073e66c%26redirect_uri%3Dhttps%253A%252F%252Fznsc3u-vt.myshopify.com%252Fcustomer_authentication%252Fcallback%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWN9MtZvSz9XmvKKK0xY2NKT&ui_hint=full",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 35,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "group_TptPG6"
+        "group_TptPG6",
+        "button_M76xbT"
       ],
       "name": "t:names.multicolumn",
       "settings": {
-        "content_direction": "row",
+        "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "space-between",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
+        "horizontal_alignment_flex_direction_column": "flex-end",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 25,
-        "section_width": "full-width",
+        "gap": 0,
+        "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
