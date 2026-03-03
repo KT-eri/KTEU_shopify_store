@@ -149,6 +149,18 @@
     "custom_world_map_PYFz8y": {
       "type": "custom-world-map",
       "blocks": {
+        "landmark_DWrDcV": {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 25,
+            "country": "Germany",
+            "name": "Owen",
+            "description": "重型機具維護工程師",
+            "image": "shopify://shop_images/man-dressed-in-monochrome-by-white-wall.jpg",
+            "link": "shopify://pages/professionowen"
+          }
+        },
         "landmark_Uz8iLW": {
           "type": "landmark",
           "settings": {
@@ -175,6 +187,7 @@
         }
       },
       "block_order": [
+        "landmark_DWrDcV",
         "landmark_Uz8iLW",
         "landmark_PEzHVr"
       ],
