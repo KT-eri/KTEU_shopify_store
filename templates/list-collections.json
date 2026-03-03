@@ -12,6 +12,21 @@
     "section_zQrJ3A": {
       "type": "section",
       "blocks": {
+        "button_frb7t8": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "Shop now",
+            "link": "shopify://collections",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
         "text_pWHLTt": {
           "type": "text",
           "name": "t:names.heading",
@@ -71,7 +86,7 @@
             "image": "shopify://shop_images/welcome-to-my-business.jpg",
             "link": "",
             "image_ratio": "adapt",
-            "width": "fill",
+            "width": "custom",
             "custom_width": 45,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
@@ -89,6 +104,7 @@
         }
       },
       "block_order": [
+        "button_frb7t8",
         "text_pWHLTt",
         "text_jWRTdh",
         "image_3UYpQw"
