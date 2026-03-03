@@ -90,7 +90,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Explore a world built by professionals, driven by precision and passion. Choose the tools that match your expertise and place them into your own collection box. Build your personal toolkit step by step — and mark your position on the craftsmen’s world map.<br/><br/></p>",
+            "text": "<p>Explore a world built by professionals, driven by precision and passion. Choose the tools that match your expertise and place them into your own collection box. Build your personal toolkit step by step — and mark your position on the craftsmen’s world map.<br/></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
