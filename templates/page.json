@@ -149,24 +149,12 @@
     "custom_world_map_PYFz8y": {
       "type": "custom-world-map",
       "blocks": {
-        "landmark_tBRUR4": {
-          "type": "landmark",
-          "settings": {
-            "pos_x": 53,
-            "pos_y": 25,
-            "country": "Germany",
-            "name": "Owen",
-            "description": "重型機具維護工程師",
-            "image": "shopify://shop_images/man-dressed-in-monochrome-by-white-wall.jpg",
-            "link": "shopify://pages/professionowen"
-          }
-        },
         "landmark_Uz8iLW": {
           "type": "landmark",
           "settings": {
-            "pos_x": 28,
-            "pos_y": 25,
-            "country": "Canada",
+            "pos_x": 84,
+            "pos_y": 32,
+            "country": "Japan",
             "name": "Lin",
             "description": "空間設計與木作職人",
             "image": "shopify://shop_images/welcome-to-my-business.jpg",
@@ -176,7 +164,7 @@
         "landmark_PEzHVr": {
           "type": "landmark",
           "settings": {
-            "pos_x": 82,
+            "pos_x": 81,
             "pos_y": 43,
             "country": "Taiwan",
             "name": "Ah-Qiang",
@@ -187,7 +175,6 @@
         }
       },
       "block_order": [
-        "landmark_tBRUR4",
         "landmark_Uz8iLW",
         "landmark_PEzHVr"
       ],
