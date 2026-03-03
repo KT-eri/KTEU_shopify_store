@@ -152,12 +152,13 @@
         "landmark_tBRUR4": {
           "type": "landmark",
           "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
+            "pos_x": 53,
+            "pos_y": 25,
             "country": "Germany",
-            "name": "職人姓名",
-            "description": "專業技能",
-            "link": ""
+            "name": "Owen",
+            "description": "重型機具維護工程師",
+            "image": "shopify://shop_images/man-dressed-in-monochrome-by-white-wall.jpg",
+            "link": "shopify://pages/professionowen"
           }
         },
         "landmark_Uz8iLW": {
