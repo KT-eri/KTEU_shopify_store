@@ -64,7 +64,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>The Craftsmen’s World Map</h2>",
+            "text": "<h2>my wishlist</h2>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -145,48 +145,10 @@
         "padding-block-start": 0,
         "padding-block-end": 50
       }
-    },
-    "custom_world_map_PYFz8y": {
-      "type": "custom-world-map",
-      "blocks": {
-        "landmark_Uz8iLW": {
-          "type": "landmark",
-          "settings": {
-            "pos_x": 84,
-            "pos_y": 32,
-            "country": "Japan",
-            "name": "Lin",
-            "description": "空間設計與木作職人",
-            "image": "shopify://shop_images/welcome-to-my-business.jpg",
-            "link": "shopify://pages/professional-profile-lin"
-          }
-        },
-        "landmark_PEzHVr": {
-          "type": "landmark",
-          "settings": {
-            "pos_x": 81,
-            "pos_y": 43,
-            "country": "Taiwan",
-            "name": "Ah-Qiang",
-            "description": "資深引擎維修技師",
-            "image": "shopify://shop_images/casual-urban-menswear.jpg",
-            "link": "shopify://pages/professional-profile"
-          }
-        }
-      },
-      "block_order": [
-        "landmark_Uz8iLW",
-        "landmark_PEzHVr"
-      ],
-      "name": "World Artisan Map (預設)",
-      "settings": {
-        "bg_color": "#f4f4f4"
-      }
     }
   },
   "order": [
     "main",
-    "section_Nj6hRL",
-    "custom_world_map_PYFz8y"
+    "section_Nj6hRL"
   ]
 }
