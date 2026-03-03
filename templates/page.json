@@ -152,12 +152,13 @@
         "landmark_Uz8iLW": {
           "type": "landmark",
           "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
-            "country": "Taiwan",
-            "name": "Ah-Qiang",
-            "description": "資深引擎維修技師",
-            "link": ""
+            "pos_x": 84,
+            "pos_y": 32,
+            "country": "Japan",
+            "name": "Lin",
+            "description": "空間設計與木作職人",
+            "image": "shopify://shop_images/welcome-to-my-business.jpg",
+            "link": "shopify://pages/professional-profile-lin"
           }
         },
         "landmark_PEzHVr": {
