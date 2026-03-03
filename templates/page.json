@@ -149,6 +149,17 @@
     "custom_world_map_PYFz8y": {
       "type": "custom-world-map",
       "blocks": {
+        "landmark_tBRUR4": {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "country": "Germany",
+            "name": "職人姓名",
+            "description": "專業技能",
+            "link": ""
+          }
+        },
         "landmark_Uz8iLW": {
           "type": "landmark",
           "settings": {
@@ -175,6 +186,7 @@
         }
       },
       "block_order": [
+        "landmark_tBRUR4",
         "landmark_Uz8iLW",
         "landmark_PEzHVr"
       ],
