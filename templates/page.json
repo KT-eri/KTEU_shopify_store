@@ -155,20 +155,21 @@
             "pos_x": 50,
             "pos_y": 50,
             "country": "Taiwan",
-            "name": "台灣職人",
-            "description": "專業技能",
+            "name": "Ah-Qiang",
+            "description": "資深引擎維修技師",
             "link": ""
           }
         },
         "landmark_PEzHVr": {
           "type": "landmark",
           "settings": {
-            "pos_x": 20,
-            "pos_y": 40,
+            "pos_x": 81,
+            "pos_y": 43,
             "country": "Taiwan",
-            "name": "在地職人",
-            "description": "專業技能",
-            "link": ""
+            "name": "Ah-Qiang",
+            "description": "資深引擎維修技師",
+            "image": "shopify://shop_images/casual-urban-menswear.jpg",
+            "link": "shopify://pages/professional-profile"
           }
         }
       },
