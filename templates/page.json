@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "main-page",
@@ -15,10 +16,10 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
+            "text": "<p>Global Artisan Map</p>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "left",
+            "alignment": "center",
             "type_preset": "h2",
             "font": "var(--font-primary--family)",
             "font_size": "",
@@ -47,16 +48,145 @@
         "heading",
         "page-content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
-        "gap": 32,
+        "gap": 0,
         "color_scheme": "",
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "section_Nj6hRL": {
+      "type": "section",
+      "blocks": {
+        "text_UddBjg": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>The Craftsmen’s World Map</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_49MrLK": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Explore a world built by professionals, driven by precision and passion. Choose the tools that match your expertise and place them into your own collection box. Build your personal toolkit step by step — and mark your position on the craftsmen’s world map.<br/></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1.125rem",
+            "line_height": "loose",
+            "letter_spacing": "loose",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_UddBjg",
+        "text_49MrLK"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 50
+      }
+    },
+    "custom_world_map_PYFz8y": {
+      "type": "custom-world-map",
+      "blocks": {
+        "landmark_Uz8iLW": {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 22,
+            "pos_y": 20,
+            "country": "Canada",
+            "name": "Lin",
+            "description": "空間設計與木作職人",
+            "image": "shopify://shop_images/welcome-to-my-business.jpg",
+            "link": "shopify://pages/professional-profile-lin"
+          }
+        },
+        "landmark_PEzHVr": {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 81,
+            "pos_y": 43,
+            "country": "Taiwan",
+            "name": "Ah-Qiang",
+            "description": "資深引擎維修技師",
+            "image": "shopify://shop_images/casual-urban-menswear.jpg",
+            "link": "shopify://pages/professional-profile"
+          }
+        }
+      },
+      "block_order": [
+        "landmark_Uz8iLW",
+        "landmark_PEzHVr"
+      ],
+      "name": "World Artisan Map (預設)",
+      "settings": {
+        "bg_color": "#f4f4f4"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "section_Nj6hRL",
+    "custom_world_map_PYFz8y"
   ]
 }

@@ -1,0 +1,232 @@
+<div class="kt-wishlist-wrapper">
+  <div class="kt-top-layout">
+    <div class="kt-user-card">
+      <div class="kt-badge">PRO ACCOUNT</div>
+      <div class="kt-user-main">
+        <div class="kt-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <div class="kt-wishlist-info">
+          <h2 class="kt-section-title">MY COLLECTION BOX</h2>
+          <ul id="wishlist-items-list" class="kt-list-scroll">
+            </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="kt-detail-card" id="detail-panel">
+      <div class="kt-card-header">
+        <span class="kt-dot"></span>
+        <h3 id="detail-title">SELECT A CATEGORY</h3>
+      </div>
+      <div id="detail-items-container" class="kt-detail-body">
+        <p class="kt-hint">點擊下方類別查看可收藏的工具，並將其放入您的清單。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="kt-category-nav">
+  {% for i in (1..6) %}
+  {% comment %} 格式化數字為 01, 02... 10, 11... {% endcomment %}
+  {% capture formatted_i %}{% if i < 10 %}0{{ i }}{% else %}{{ i }}{% endif %}{% endcapture %}
+
+  <button class="kt-nav-item" onclick="showCategory({{ i }})">
+    {% comment %} 如果你想保留設計稿中的 "C"，可以寫成 C{{ formatted_i }} {% endcomment %}
+    <span class="kt-nav-id">{{ formatted_i }}</span>
+    
+    <span class="kt-nav-label">
+      {% case i %}
+        {% when 1 %}Sockets
+        {% when 2 %}Wrenches
+        {% when 3 %}Pliers
+        {% when 4 %}Screwdrivers
+        {% when 5 %}Power Tools
+        {% when 6 %}Storage
+        {% comment %} 你可以繼續擴充 07-19 的標籤 {% endcomment %}
+        {% else %}Category {{ formatted_i }}
+      {% endcase %}
+    </span>
+  </button>
+{% endfor %}
+  </div>
+
+  <hr class="kt-divider">
+
+  <div class="kt-recommendation">
+    <div class="kt-header-flex">
+      <h2 class="kt-section-title">RECOMMENDED FOR YOU</h2>
+      <span class="kt-count-badge">AUTO-FILTER ON</span>
+    </div>
+    <div class="kt-product-grid" id="recommendation-grid">
+      {% comment %} 抓取商店內的前 8 個產品作為 Demo 資料 {% endcomment %}
+      {% for product in collections.all.products limit: 8 %}
+        <div class="kt-product-card" data-product-id="{{ product.id }}">
+          <div class="kt-img-box">
+            <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}" loading="lazy">
+          </div>
+          <div class="kt-product-info">
+            <p class="kt-product-vendor">KING TONY PROFESSIONAL</p>
+            <h4 class="kt-product-name">{{ product.title }}</h4>
+            <button class="kt-primary-btn" onclick="addToWishlist('{{ product.id }}', '{{ product.title | escape }}', '{{ product.featured_image | img_url: 'small' }}')">
+              ADD TO BOX
+            </button>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  :root { --kt-red: #E31D1A; --kt-dark: #1A1A1A; --kt-grey: #F5F5F5; --kt-border: #EEEEEE; }
+
+  .kt-wishlist-wrapper { max-width: 1200px; margin: 0 auto; padding: 60px 20px; background: #fff; }
+  
+  /* 頂部佈局優化 */
+  .kt-top-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; margin-bottom: 50px; }
+  
+  .kt-user-card, .kt-detail-card { background: var(--kt-grey); border-radius: 8px; padding: 30px; position: relative; overflow: hidden; border: 1px solid var(--kt-border); }
+  .kt-detail-card { background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+  .kt-badge { position: absolute; top: 15px; right: 15px; background: var(--kt-dark); color: #fff; font-size: 9px; padding: 3px 8px; border-radius: 4px; font-weight: bold; letter-spacing: 1px; }
+  .kt-avatar { width: 60px; height: 60px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--kt-dark); margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+  .kt-avatar svg { width: 30px; height: 30px; }
+  .kt-section-title { font-size: 13px; font-weight: 800; letter-spacing: 2px; color: var(--kt-dark); margin-top: 0; margin-bottom: 20px; text-transform: uppercase; border-bottom: 1px solid var(--kt-border); padding-bottom: 10px; display: inline-block;}
+
+  /* 收藏清單列樣式 */
+  .kt-list-scroll { max-height: 180px; overflow-y: auto; list-style: none; padding: 0; margin: 0; }
+  .kt-item-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.03); font-size: 13px; }
+  .kt-item-row strong { color: var(--kt-red); }
+  .kt-del-btn { color: #ccc; cursor: pointer; transition: color 0.3s; background: none; border: none; font-size: 16px; padding: 0 5px; }
+  .kt-del-btn:hover { color: var(--kt-red); }
+
+  /* 類別詳情面板樣式 */
+  .kt-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .kt-dot { width: 8px; height: 8px; background: var(--kt-red); border-radius: 50%; }
+  #detail-title { font-size: 15px; font-weight: 700; margin: 0; color: var(--kt-dark); text-transform: uppercase;}
+  .kt-hint { font-size: 13px; color: #888; margin: 0; }
+  .kt-detail-body { min-height: 100px; }
+
+  /* C1-C6 導覽優化 */
+  .kt-category-nav { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; margin-bottom: 60px; }
+  .kt-nav-item { background: #fff; border: 1px solid var(--kt-border); padding: 20px; border-radius: 6px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-align: left; }
+  .kt-nav-item:hover { border-color: var(--kt-red); transform: translateY(-3px); box-shadow: 0 8px 15px rgba(227, 29, 26, 0.08); }
+  .kt-nav-id { display: block; font-size: 18px; font-weight: 900; color: var(--kt-red); margin-bottom: 5px; }
+  .kt-nav-label { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; }
+
+  /* 推薦商品卡片 */
+  .kt-header-flex { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+  .kt-count-badge { font-size: 10px; color: #2ecc71; font-weight: bold; border: 1px solid #2ecc71; padding: 2px 8px; border-radius: 20px; text-transform: uppercase;}
+  .kt-product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .kt-product-card { background: #fff; border-radius: 6px; padding: 15px; transition: all 0.3s ease; border: 1px solid var(--kt-border); box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+  .kt-product-card:hover { border-color: #ddd; box-shadow: 0 5px 15px rgba(0,0,0,0.05);}
+  .kt-img-box { height: 180px; background: var(--kt-grey); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; }
+  .kt-img-box img { max-height: 80%; mix-blend-mode: multiply; }
+  .kt-product-vendor { font-size: 9px; color: #999; font-weight: bold; margin-bottom: 5px; text-transform: uppercase;}
+  .kt-product-name { font-size: 13px; font-weight: 600; margin: 0 0 15px 0; height: 32px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; color: var(--kt-dark);}
+  
+  /* 品牌按鈕樣式 */
+  .kt-primary-btn { width: 100%; background: var(--kt-dark); color: #fff; border: none; padding: 10px; font-size: 11px; font-weight: 800; border-radius: 4px; cursor: pointer; transition: background 0.3s; letter-spacing: 1px; text-transform: uppercase;}
+  .kt-primary-btn:hover { background: var(--kt-red); }
+
+  /* 分隔線樣式 */
+  .kt-divider { margin: 60px 0; border: none; border-top: 1px solid var(--kt-border); }
+
+  /* 自動排除邏輯：隱藏類別 */
+  .is-hidden { display: none !important; }
+</style>
+
+<script>
+  // 模擬 C1-C6 的細項資料 (實務上可改為讀取 Collection)
+  const categoryData = {
+    1: { title: "Sockets 3/8 SERIES", items: [{id: 'KT-3433M', name: '6PT Deep Socket'}, {id: 'KT-3731', name: 'Slotted Bit'}] },
+    2: { title: "Wrenches & TORQUE", items: [{id: 'KT-34462', name: 'Torque Wrench'}, {id: 'KT-1060', name: 'Combination Wrench'}] },
+    3: { title: "Pliers & CUTTERS", items: [{id: 'KT-6111', name: 'Combination Pliers'}, {id: 'KT-6211', name: 'Diagonal Pliers'}] },
+    4: { title: "Screwdrivers", items: [{id: 'KT-1421', name: 'Phillips Screwdriver'}, {id: 'KT-1422', name: 'Slotted Screwdriver'}] },
+    5: { title: "Power Tools", items: [{id: 'KT-P33411', name: 'Impact Wrench'}, {id: 'KT-P33421', name: 'Air Ratchet'}] },
+    6: { title: "Storage SYSTEMS", items: [{id: 'KT-87411', name: 'Tool Chest'}, {id: 'KT-87421', name: 'Tool Cart'}] }
+  };
+
+  // 初始化清單與排除邏輯
+  function initWishlist() {
+    renderWishlist();
+    filterRecommendations();
+  }
+
+  // CRUD: Read - 渲染收藏清單
+  function renderWishlist() {
+    const list = JSON.parse(localStorage.getItem('kt_wishlist')) || [];
+    const container = document.getElementById('wishlist-items-list');
+    if (list.length === 0) {
+      container.innerHTML = '<li style="color:#bbb; font-size:12px; padding:20px 0;">您的收藏箱目前是空的。</li>';
+      return;
+    }
+    container.innerHTML = list.map(item => `
+      <li class="kt-item-row">
+        <span><strong>${item.id}</strong> - ${item.name}</span>
+        <button class="kt-del-btn" onclick="removeFromWishlist('${item.id}')" title="移除項目">✕</button>
+      </li>
+    `).join('');
+  }
+
+  // CRUD: Create - 加入收藏
+  function addToWishlist(id, name, img) {
+    let list = JSON.parse(localStorage.getItem('kt_wishlist')) || [];
+    if (!list.find(item => item.id === id)) {
+      list.push({id, name, img});
+      localStorage.setItem('kt_wishlist', JSON.stringify(list));
+      renderWishlist();
+      filterRecommendations();
+    }
+  }
+
+  // CRUD: Delete - 移除收藏
+  function removeFromWishlist(id) {
+    let list = JSON.parse(localStorage.getItem('kt_wishlist')) || [];
+    list = list.filter(item => item.id !== id);
+    localStorage.setItem('kt_wishlist', JSON.stringify(list));
+    renderWishlist();
+    filterRecommendations();
+  }
+
+  // 自動排除已有的項目 ID
+  function filterRecommendations() {
+    const list = JSON.parse(localStorage.getItem('kt_wishlist')) || [];
+    const savedIds = list.map(item => item.id);
+    
+    document.querySelectorAll('.kt-product-card').forEach(el => {
+      const pid = el.getAttribute('data-product-id');
+      // 比對 ID，如果已收藏則隱藏
+      if (savedIds.includes(pid)) {
+        el.classList.add('is-hidden');
+      } else {
+        el.classList.remove('is-hidden');
+      }
+    });
+  }
+
+  // 互動功能：顯示類別細項
+  function showCategory(id) {
+    const data = categoryData[id];
+    if (!data) return;
+    document.getElementById('detail-title').innerText = data.title;
+    let html = '';
+    data.items.forEach(item => {
+      html += `
+        <div class="kt-item-row" style="border-bottom: 1px solid var(--kt-grey); padding: 12px 0;">
+          <span style="font-weight:600;">${item.name}</span>
+          <button class="kt-primary-btn" style="width:auto; padding:5px 15px; font-size:10px;" onclick="addToWishlist('${item.id}', '${item.name}', '')">ADD</button>
+        </div>`;
+    });
+    document.getElementById('detail-items-container').innerHTML = html;
+  }
+
+  document.addEventListener('DOMContentLoaded', initWishlist);
+</script>
+
+{% schema %}
+{
+  "name": "KING TONY Wishlist PRO",
+  "presets": [{ "name": "KING TONY Wishlist PRO" }]
+}
+{% endschema %}
