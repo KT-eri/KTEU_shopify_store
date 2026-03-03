@@ -63,35 +63,11 @@
             "padding-inline-end": 0
           },
           "blocks": {}
-        },
-        "image_3UYpQw": {
-          "type": "image",
-          "name": "t:names.image",
-          "settings": {
-            "image": "shopify://shop_images/welcome-to-my-business.jpg",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "custom",
-            "custom_width": 45,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
         "text_pWHLTt",
-        "text_jWRTdh",
-        "image_3UYpQw"
+        "text_jWRTdh"
       ],
       "name": "t:names.custom_section",
       "settings": {
@@ -103,7 +79,7 @@
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 30,
-        "section_width": "full-width",
+        "section_width": "page-width",
         "section_height": "small",
         "section_height_custom": 50,
         "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
@@ -120,6 +96,65 @@
         "gradient_direction": "to top",
         "padding-block-start": 40,
         "padding-block-end": 0
+      }
+    },
+    "media_with_content_wPxLPh": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/close-up-of-handheld-tools.jpg",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 24
+          },
+          "blocks": {
+            "jumbo_text_N4ewB4": {
+              "type": "jumbo-text",
+              "name": "t:names.jumbo_text",
+              "settings": {
+                "text": "Enjoy\nYour\nWork",
+                "font": "heading",
+                "alignment": "right",
+                "line_height": "0.8",
+                "letter_spacing": "-0.03em",
+                "case": "uppercase",
+                "text_effect": "none",
+                "animation_repeat": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "jumbo_text_N4ewB4"
+          ]
+        }
+      },
+      "name": "t:names.editorial_jumbo_text",
+      "settings": {
+        "media_position": "right",
+        "media_width": "medium",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "extend_media": true,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 20,
+        "padding-block-end": 20
       }
     },
     "collection_links_ACMQDW": {
@@ -352,6 +387,7 @@
   },
   "order": [
     "section_zQrJ3A",
+    "media_with_content_wPxLPh",
     "collection_links_ACMQDW",
     "collection_list_Wfgh3m"
   ]
