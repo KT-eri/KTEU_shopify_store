@@ -57,41 +57,6 @@
         "padding-block-end": 80
       }
     },
-    "custom_world_map_PYFz8y": {
-      "type": "custom-world-map",
-      "blocks": {
-        "landmark_Uz8iLW": {
-          "type": "landmark",
-          "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
-            "country": "Taiwan",
-            "name": "台灣職人",
-            "description": "專業技能",
-            "link": ""
-          }
-        },
-        "landmark_PEzHVr": {
-          "type": "landmark",
-          "settings": {
-            "pos_x": 20,
-            "pos_y": 40,
-            "country": "Taiwan",
-            "name": "在地職人",
-            "description": "專業技能",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "landmark_Uz8iLW",
-        "landmark_PEzHVr"
-      ],
-      "name": "World Artisan Map (預設)",
-      "settings": {
-        "bg_color": "#f4f4f4"
-      }
-    },
     "section_Nj6hRL": {
       "type": "section",
       "blocks": {
@@ -99,11 +64,11 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>Global Artisan Map</h2>",
+            "text": "<h2>The Craftsmen’s World Map</h2>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "rte",
+            "type_preset": "h2",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -125,7 +90,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+            "text": "<p>Explore a world built by professionals, driven by precision and passion. Choose the tools that match your expertise and place them into your own collection box. Build your personal toolkit step by step — and mark your position on the craftsmen’s world map.<br/><br/></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -179,6 +144,41 @@
         "gradient_direction": "to top",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "custom_world_map_PYFz8y": {
+      "type": "custom-world-map",
+      "blocks": {
+        "landmark_Uz8iLW": {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "country": "Taiwan",
+            "name": "台灣職人",
+            "description": "專業技能",
+            "link": ""
+          }
+        },
+        "landmark_PEzHVr": {
+          "type": "landmark",
+          "settings": {
+            "pos_x": 20,
+            "pos_y": 40,
+            "country": "Taiwan",
+            "name": "在地職人",
+            "description": "專業技能",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "landmark_Uz8iLW",
+        "landmark_PEzHVr"
+      ],
+      "name": "World Artisan Map (預設)",
+      "settings": {
+        "bg_color": "#f4f4f4"
       }
     }
   },
