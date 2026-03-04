@@ -191,8 +191,9 @@
       </dialog>
     </cart-drawer-component>
   {% else %}
+    {% comment %}  預設路徑 href="{{ routes.cart_url }}" {% endcomment %}
     <a
-      href="{{ routes.cart_url }}"
+      href="/pages/my-wish-list"
       class="header-actions__action action__cart"
       aria-label="{{ 'accessibility.cart' | t }}"
       aria-describedby="cart-bubble-text"
