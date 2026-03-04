@@ -191,16 +191,13 @@
       </dialog>
     </cart-drawer-component>
   {% else %}
-   {% comment %}
-      --- 自訂愛心/願望清單圖示連結 ---
-      日後若要更改點擊後的跳轉頁面，請直接修改下方 href 裡面的網址路徑 (例如: /pages/wishlist)。
-    {% endcomment %}
     <a
-      href="/pages/my-wish-list" 
+      href="{{ routes.cart_url }}"
       class="header-actions__action action__cart"
-      aria-label="Wishlist"
+      aria-label="{{ 'accessibility.cart' | t }}"
+      aria-describedby="cart-bubble-text"
     >
-      {% comment %} {{ cart_icon }} {% endcomment %}
+      {{ cart_icon }}
     </a>
   {% endif %}
 </header-actions>
