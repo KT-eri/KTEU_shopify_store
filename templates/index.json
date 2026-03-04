@@ -1755,6 +1755,7 @@
         "group_kz3AkF",
         "group_WDXUJf"
       ],
+      "disabled": true,
       "name": "t:names.multicolumn",
       "settings": {
         "content_direction": "row",
