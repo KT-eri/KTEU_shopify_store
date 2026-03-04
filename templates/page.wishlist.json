@@ -67,6 +67,7 @@
         "image_znN7VF",
         "image_ii63Pa"
       ],
+      "disabled": true,
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "row",
@@ -584,11 +585,26 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "divider_LQ33Fw": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
+      }
     }
   },
   "order": [
     "wishlist_main",
     "section_fQ63nb",
+    "divider_LQ33Fw",
     "section_HYndgN"
   ]
 }
