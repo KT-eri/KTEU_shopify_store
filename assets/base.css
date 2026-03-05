@@ -34,6 +34,13 @@ html[scroll-lock] {
   overflow: hidden;
 }
 
+/* 隱藏預測搜尋中的價格 */
+.predictive-search__item-price, 
+.predictive-search [data-armored-price],
+.predictive-search .price {
+  display: none !important;
+}
+
 img,
 picture,
 video,
