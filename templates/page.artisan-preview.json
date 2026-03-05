@@ -13,7 +13,7 @@
       "type": "artisan-profile",
       "settings": {
         "bg_color": "#ffffff",
-        "image": "{{ page.metafields.custom.craftsmanpic.value }}",
+        "image": "{{ page.metafields.custom.craftsmanpic.value | image_url: width: 400 }}",
         "country": "{{ page.metafields.custom.craftsmancty.value }}",
         "subtitle": "{{ page.metafields.custom.craftsmanjob.value }}",
         "title": "{{ page.metafields.custom.craftsmanname.value }}",
