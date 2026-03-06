@@ -204,8 +204,8 @@
               "settings": {
                 "width": "100%",
                 "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
+                "alignment": "center",
+                "type_preset": "h5",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
