@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "main-404",
@@ -67,8 +68,8 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Continue shopping",
-            "link": "shopify://collections/all",
+            "label": "Back to Home",
+            "link": "https://znsc3u-vt.myshopify.com/",
             "open_in_new_tab": false,
             "style_class": "button",
             "width": "fit-content",
@@ -225,6 +226,7 @@
             "price_A6DYPt": {
               "type": "price",
               "name": "t:names.product_price",
+              "disabled": true,
               "settings": {
                 "show_sale_price_first": true,
                 "show_installments": false,
@@ -269,7 +271,7 @@
         "section_width": "page-width",
         "horizontal_alignment": "center",
         "gap": 36,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7",
         "padding-block-start": 48,
         "padding-block-end": 48
       }
